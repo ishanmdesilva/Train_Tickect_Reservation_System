@@ -28,8 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
     @NamedQuery(name = "User.findByFristName", query = "SELECT u FROM User u WHERE u.fristName = :fristName"),
-    @NamedQuery(name = "User.findBySecondName", query = "SELECT u FROM User u WHERE u.secondName = :secondName"),
-    @NamedQuery(name = "User.findByUserName", query = "SELECT u FROM User u WHERE u.userName = :userName"),
+    @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName"),
+    @NamedQuery(name = "User.findByPhoneNumber", query = "SELECT u FROM User u WHERE u.phoneNumber = :phoneNumber"),
     @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
     @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")})
 public class User implements Serializable {
@@ -43,11 +43,11 @@ public class User implements Serializable {
     @Column(name = "frist_name")
     private String fristName;
     @Basic(optional = false)
-    @Column(name = "second_name")
-    private String secondName;
+    @Column(name = "last_name")
+    private String lastName;
     @Basic(optional = false)
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "phone_number")
+    private String phoneNumber;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -62,11 +62,11 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public User(Long id, String fristName, String secondName, String userName, String email, String password) {
+    public User(Long id, String fristName, String lastName, String phoneNumber, String email, String password) {
         this.id = id;
         this.fristName = fristName;
-        this.secondName = secondName;
-        this.userName = userName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
     }
@@ -87,20 +87,20 @@ public class User implements Serializable {
         this.fristName = fristName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
