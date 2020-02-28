@@ -5,6 +5,7 @@ import com.uoc.trainsystem.core.response.UserLoginResponseDTO;
 
 public interface UserLoginService {
 
-	public UserLoginResponseDTO login(UserLoginRequest req) throws Exception;
+	UserLoginResponseDTO login(UserLoginRequest req) throws Exception;
+	UserLoginResponseDTO get(Long id) throws Exception;
 	
 }
