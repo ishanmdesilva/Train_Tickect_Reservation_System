@@ -8,5 +8,6 @@ import com.uoc.trainsystem.core.response.SearchTrainResponseDTO;
 public interface SearchTrainService {
 
 	List<SearchTrainResponseDTO> serch(SearchTrainRequest req) throws Exception;
+	SearchTrainResponseDTO viewTrainStatus(Integer id) throws Exception;
 	
 }

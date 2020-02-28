@@ -10,6 +10,7 @@ import com.inova.applogger.util.MethodLogging;
 import com.uoc.trainsystem.core.request.SearchTrainRequest;
 import com.uoc.trainsystem.core.response.SearchTrainResponseDTO;
 import com.uoc.trainsystem.core.service.SearchTrainService;
+import com.uoc.trainsystem.repository.dao.GetTrainStatusDAO;
 import com.uoc.trainsystem.repository.dao.SearchTrainDAO;
 import com.uoc.trainsystem.repository.wrapper.SearchTrainMapingDTO;
 import com.uoc.trainsystem.repository.wrapper.SearchTrainParamDTO;
@@ -19,6 +20,8 @@ public class SearchTrainServiceImpl implements SearchTrainService {
 
 	@Autowired
 	private SearchTrainDAO searchTrainDAO;
+	@Autowired
+	private GetTrainStatusDAO getTrainStatusDAO;
 	
 	@MethodLogging
 	@Override
@@ -27,6 +30,12 @@ public class SearchTrainServiceImpl implements SearchTrainService {
 		List<SearchTrainResponseDTO> newList = new ArrayList<>();
 		resList.forEach(item -> newList.add(buildResponse(item)));
 		return newList;
+	}
+	
+	@MethodLogging
+	@Override
+	public SearchTrainResponseDTO viewTrainStatus(Integer id) throws Exception {
+		 return buildResponse(this.getTrainStatusDAO.getTrainStatus(id));
 	}
 	
 	private SearchTrainResponseDTO buildResponse(SearchTrainMapingDTO res){
