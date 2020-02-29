@@ -25,6 +25,7 @@ public class MessageSenderController {
 			return this.messageSenderService.sendMessage(req.getData());
 			
 		} catch (Exception e) {	
+			e.printStackTrace();
 			return "sms service error..";
 		
 		}	

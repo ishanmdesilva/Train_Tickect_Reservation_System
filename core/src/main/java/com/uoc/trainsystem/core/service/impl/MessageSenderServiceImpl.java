@@ -23,7 +23,9 @@ public class MessageSenderServiceImpl implements MessageSenderService {
 		if(req.getBookingdetailsId() != null) {
 			MessageCreator creator = Message.creator(new PhoneNumber(req.getPhoneNumber()),
 							new PhoneNumber(twilioConfig.getTrailNumber()),
-							"Your tickets has been successfully booked with reference number QR00"+req.getBookingdetailsId()+".please come and collect your tickets..");
+							"Your tickets has been successfully booked with reference number QR00"+req.getBookingdetailsId()+
+									" and total price is "+req.getTotalTicketPrice()
+									+ " .please come and collect your tickets..");
 			creator.create();
 			
 			return "sms success";
